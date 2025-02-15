@@ -46,9 +46,10 @@ namespace ModelValidationsExample.Models
 
         [MinimumYearValidation(2000, ErrorMessage = "Year must be greater than {0}")]
         [DateRangeValidator("ToDate", ErrorMessage = "'From date': {0} should be smaller than or equal to 'To date': {1}")]
+
         public DateTime? FromDate { get; set; }
 
-        
+        //[DateRangeValidator("FromDate", ErrorMessage = "'From date': {0} should be smaller than or equal to 'To date': {1}")]
         public DateTime? ToDate { get; set; }
 
         public int? Age { get; set; }

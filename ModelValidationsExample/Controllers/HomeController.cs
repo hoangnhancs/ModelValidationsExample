@@ -11,7 +11,7 @@ namespace ModelValidationsExample.Controllers
         [Route("register/")]
         //[Bind(nameof(Person.PersonName), nameof(Person.Email),nameof(Person.Password), nameof(Person.ConfirmPassword))]
         //[ModelBinder(BinderType = typeof(PersonModelBinder))]
-        public IActionResult Index(Person person, [FromHeader(Name = "User-Agent")] string? UserAgent) //binding truoc, validation sau
+        public IActionResult Index(Person person) //binding truoc, validation sau
         {
             if(!ModelState.IsValid)
             {
@@ -31,7 +31,7 @@ namespace ModelValidationsExample.Controllers
 
                 return BadRequest($"Validation fail!!! {String.Join(", ", errors)}");
             }
-            return Content($"{person}, {UserAgent}");
+            return Content($"{person}");
         }
     }
 }

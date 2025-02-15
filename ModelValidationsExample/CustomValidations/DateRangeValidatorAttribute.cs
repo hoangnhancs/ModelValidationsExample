@@ -6,7 +6,7 @@ namespace ModelValidationsExample.CustomValidations
     public class DateRangeValidatorAttribute : ValidationAttribute
     {
         string OtherPropertyName { get; set; }
-        public DateRangeValidatorAttribute() { }
+        //public DateRangeValidatorAttribute() { }
         public DateRangeValidatorAttribute(string otherPropertyName)
         {
             OtherPropertyName = otherPropertyName; 
@@ -26,7 +26,7 @@ namespace ModelValidationsExample.CustomValidations
                     //validationContext.ObjectInstance bao gom cac thuoc tinh ma minh da khai bao, nhu email, price,...
                     if (to_date < from_date)
                     {
-                        return new ValidationResult(String.Format(ErrorMessage, from_date, to_date), new[] {OtherPropertyName});
+                        return new ValidationResult(String.Format(ErrorMessage, from_date, to_date), new[] {validationContext.MemberName});
                     }
                     else
                     {
